@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../redux/todoSlice';
 import css from './TodoForm.module.css';
 
 export const TodoForm = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [todo, setTodo] = useState([]);
   const [titleError, setTitleError] = useState(false);
   const [descriptionError, setDescriptionError] = useState(false);
 
@@ -20,7 +22,7 @@ export const TodoForm = () => {
     setDescription('');
   };
 
-  const addTodo = event => {
+  const onSubmitForm = event => {
     event.preventDefault();
 
     if (title === '') {
@@ -36,17 +38,13 @@ export const TodoForm = () => {
     }
 
     if (title !== '' && description !== '') {
-      setTodo(prev => [
-        ...prev,
-        { id: todo.length + 1, title, description, status: false },
-      ]);
+      dispatch(addTodo({ title, description, status: false }));
       handleReset();
     }
   };
 
   return (
-    <form className={css.form} onSubmit={addTodo}>
-      {/* {console.log('todo', todo)} */}
+    <form className={css.form} onSubmit={onSubmitForm}>
       <div className={css.formDiv}>
         <label className={css.formLabel} htmlFor="title">
           Title:

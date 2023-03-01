@@ -2,7 +2,6 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 120px;
 }
 
 .formDiv {
@@ -22,6 +21,7 @@ button {
   border: none;
   background-color: #4caf50;
   color: white;
+  cursor: pointer;
 }
 
 button:hover {

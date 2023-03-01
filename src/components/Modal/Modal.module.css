@@ -1,4 +1,4 @@
-.Overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,11 +7,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.844);
+  background-color: rgba(0, 0, 0, 0.507);
   z-index: 1200;
 }
 
-.Modal {
-  max-width: calc(100vw - 400px);
-  max-height: calc(100vh - 200px);
+.modal {
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 5px;
+  max-width: 350px;
+  max-height: 250px;
+  overflow: auto;
+}
+
+.btnClose {
+  padding: 3px 13px;
+  border-radius: 3px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+btnClose:hover {
+  cursor: pointer;
+  background-color: #3e8e41;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.status {
+  display: flex;
+  gap: 10px;
 }
